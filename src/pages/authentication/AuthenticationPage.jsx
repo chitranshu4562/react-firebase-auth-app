@@ -1,6 +1,7 @@
 import {useContext, useState} from "react";
 import AuthForm from "../../auth-form/AuthForm.jsx";
 import AuthContext from "../../authContext.jsx";
+import {saveAuthDataInLocalStorage} from "../../utils.js";
 
 export default function AuthenticationPage() {
     const authContext = useContext(AuthContext);
@@ -9,6 +10,7 @@ export default function AuthenticationPage() {
     const handleAuthentication = (values) => {
         console.log(values);
         authContext.setIsAuthenticated(true);
+        saveAuthDataInLocalStorage();
     }
 
     const handleAuthMode = () => {

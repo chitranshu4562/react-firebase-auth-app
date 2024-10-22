@@ -5,9 +5,11 @@ import './App.css'
 import AuthenticationPage from "./pages/authentication/AuthenticationPage.jsx";
 import HomePage from "./pages/home/HomePage.jsx";
 import AuthContext from "./authContext.jsx";
+import {authStatus} from "./constants.js";
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const authData = JSON.parse(localStorage.getItem(authStatus));
+    const [isAuthenticated, setIsAuthenticated] = useState(authData?.isAuthenticated ? true : false);
 
 
   return (
